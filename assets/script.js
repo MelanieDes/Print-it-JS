@@ -17,6 +17,7 @@
 //	}
 //]
 
+<<<<<<< HEAD
 //const slide = ['slide1.jpg', 'slide2.jpg', 'slide3.jpg', 'slide4.png']
 const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');
@@ -26,3 +27,9 @@ left.addEventListener('click', () => {
         
     }
 });
+=======
+
+
+
+
+>>>>>>> 364618e43a7b8e1939c3eb1eb6b637d17aab463b
