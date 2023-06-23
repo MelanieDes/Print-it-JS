@@ -19,6 +19,7 @@ const slides = [
 ];
 
 const imageSlide = document.querySelector('#banner > img');
+const textSlide = document.querySelector('#banner > p');
 const left = document.querySelector(".arrow_left");
 const right = document.querySelector(".arrow_right");
 const totalSlides = slides.length;
@@ -27,7 +28,8 @@ let i = 0;
 
 function slideShow() {
     imageSlide.src = `./assets/images/slideshow/${slides[i].image}`;
-};
+    textSlide.innerHTML = slides[i].tagLine;
+  };
 
 right.addEventListener("click", () => {
     if(i == totalSlides -1) {
