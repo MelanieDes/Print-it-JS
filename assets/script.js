@@ -18,33 +18,43 @@ const slides = [
   },
 ];
 
-const imageSlide = document.querySelector('#banner > img');
-const textSlide = document.querySelector('#banner > p');
-const left = document.querySelector(".arrow_left");
-const right = document.querySelector(".arrow_right");
+const imageSlide = document.querySelector("#banner > img");
+const textSlide = document.querySelector("#banner > p");
+const slideArrowLeft = document.querySelector(".arrow_left");
+const slideArrowRight = document.querySelector(".arrow_right");
+const dots = document.querySelector(".dots");
+const dot = document.createElement("span");
 const totalSlides = slides.length;
 
-let i = 0;
+let indexSlide = 0;
+
+function dots() {
+  dot.classList.add(".dot");
+  document.querySelector(".dots").appendChild(dot);
+}
+
 
 function slideShow() {
-    imageSlide.src = `./assets/images/slideshow/${slides[i].image}`;
-    textSlide.innerHTML = slides[i].tagLine;
-  };
+  imageSlide.src = `./assets/images/slideshow/${slides[indexSlide].image}`;
+  textSlide.innerHTML = slides[indexSlide].tagLine;
+}
 
-right.addEventListener("click", () => {
-    if(i == totalSlides -1) {
-        i = 0;
-    }else{
-        i++;
-    }
-    slideShow();
+slideArrowRight.addEventListener("click", () => {
+  if (indexSlide == totalSlides - 1) {
+    indexSlide = 0;
+  } else {
+    indexSlide++;
+  }
+  slideShow();
 });
 
-left.addEventListener("click", () => {
-    if(i == 0) {
-        i = totalSlides -1;
-    } else {
-        i--;
-    }
-    slideShow();
+slideArrowLeft.addEventListener("click", () => {
+  if (indexSlide == 0) {
+    indexSlide = totalSlides - 1;
+  } else {
+    indexSlide--;
+  }
+  slideShow();
 });
+
+// dots.addEventListener()
