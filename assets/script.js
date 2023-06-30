@@ -22,21 +22,18 @@ const imageSlide = document.querySelector("#banner > img");
 const textSlide = document.querySelector("#banner > p");
 const slideArrowLeft = document.querySelector(".arrow_left");
 const slideArrowRight = document.querySelector(".arrow_right");
-const dots = document.querySelector(".dots");
-const dot = document.createElement("span");
 const totalSlides = slides.length;
 
 let indexSlide = 0;
 
-function dots() {
-  dot.classList.add(".dot");
-  document.querySelector(".dots").appendChild(dot);
-}
-
-
 function slideShow() {
   imageSlide.src = `./assets/images/slideshow/${slides[indexSlide].image}`;
   textSlide.innerHTML = slides[indexSlide].tagLine;
+  // supprimer la classe selected au précédent dot active
+
+  // rajouter au future active dot la selected
+  let allDots = document.querySelectorAll(".dot")
+  let futureActiveDot = allDots[indexSlide]
 }
 
 slideArrowRight.addEventListener("click", () => {
@@ -57,4 +54,17 @@ slideArrowLeft.addEventListener("click", () => {
   slideShow();
 });
 
-// dots.addEventListener()
+function appendNewDot() {
+  const dots = document.querySelector(".dots");
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dots.appendChild(dot);
+}
+
+for (let index = 0; index < slides.length; index++) {
+  appendNewDot();
+}
+
+// ajouter au premier dot la classe dot_selected
+let firstDot = document.querySelector(".dot");
+firstDot.classList.add("dot_selected");
