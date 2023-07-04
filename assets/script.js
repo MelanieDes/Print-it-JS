@@ -30,11 +30,16 @@ function slideShow() {
   imageSlide.src = `./assets/images/slideshow/${slides[indexSlide].image}`;
   textSlide.innerHTML = slides[indexSlide].tagLine;
   // supprimer la classe selected au précédent dot active
-
+  firstDot.classList.remove("dot_selected")
+  
+    
   // rajouter au future active dot la selected
   let allDots = document.querySelectorAll(".dot")
-  let futureActiveDot = allDots[indexSlide]
+  let futureActiveDot = allDots[indexSlide];  
+  futureActiveDot.classList.add("dot_selected")
+  console.log(slideShow)
 }
+
 
 slideArrowRight.addEventListener("click", () => {
   if (indexSlide == totalSlides - 1) {
@@ -64,7 +69,8 @@ function appendNewDot() {
 for (let index = 0; index < slides.length; index++) {
   appendNewDot();
 }
-
 // ajouter au premier dot la classe dot_selected
 let firstDot = document.querySelector(".dot");
 firstDot.classList.add("dot_selected");
+
+
