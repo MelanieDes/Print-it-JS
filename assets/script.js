@@ -24,22 +24,28 @@ const slideArrowLeft = document.querySelector(".arrow_left");
 const slideArrowRight = document.querySelector(".arrow_right");
 const totalSlides = slides.length;
 
+
 let indexSlide = 0;
 
 function slideShow() {
   imageSlide.src = `./assets/images/slideshow/${slides[indexSlide].image}`;
   textSlide.innerHTML = slides[indexSlide].tagLine;
-  // supprimer la classe selected au précédent dot active
-  firstDot.classList.remove("dot_selected")
+  // supprimer la classe selected au précédent dot active / fait
   
-    
-  // rajouter au future active dot la selected
-  let allDots = document.querySelectorAll(".dot")
-  let futureActiveDot = allDots[indexSlide];  
-  futureActiveDot.classList.add("dot_selected")
-  console.log(slideShow)
+    firstDot.classList.remove("dot_selected")
+  
+   
+  // rajouter au future active dot la selected / fait
+  let allDots = document.querySelectorAll(".dot");
+  let futureActiveDot = allDots[indexSlide];
+  for(let indexSlide = 0; indexSlide < allDots.length; indexSlide++) {
+    futureActiveDot.classList.add("dot_selected");
+    // afficher la selection sur le dot selectionner
+    // if()
+    console.log(allDots);
+  
+  } 
 }
-
 
 slideArrowRight.addEventListener("click", () => {
   if (indexSlide == totalSlides - 1) {
@@ -72,5 +78,3 @@ for (let index = 0; index < slides.length; index++) {
 // ajouter au premier dot la classe dot_selected
 let firstDot = document.querySelector(".dot");
 firstDot.classList.add("dot_selected");
-
-
