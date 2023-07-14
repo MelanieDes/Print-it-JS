@@ -24,26 +24,22 @@ const slideArrowLeft = document.querySelector(".arrow_left");
 const slideArrowRight = document.querySelector(".arrow_right");
 const totalSlides = slides.length;
 
-
 let indexSlide = 0;
 
 function slideShow() {
   imageSlide.src = `./assets/images/slideshow/${slides[indexSlide].image}`;
   textSlide.innerHTML = slides[indexSlide].tagLine;
+  // DOTS
   // supprimer la classe selected au précédent dot active / fait
-  
-    firstDot.classList.remove("dot_selected")
-  
-   
+  let previusActivateDot = document.querySelector(".dot_selected")
+  if(previusActivateDot) {
+    previusActivateDot.classList.remove("dot_selected")
+  }
   // rajouter au future active dot la selected / fait
   let allDots = document.querySelectorAll(".dot");
   let futureActiveDot = allDots[indexSlide];
-  for(let indexSlide = 0; indexSlide < allDots.length; indexSlide++) {
+  if(futureActiveDot) {
     futureActiveDot.classList.add("dot_selected");
-    // afficher la selection sur le dot selectionner
-    // if()
-    console.log(allDots);
-  
   } 
 }
 
