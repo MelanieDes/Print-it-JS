@@ -26,7 +26,7 @@ const totalSlides = slides.length;
 
 let indexSlide = 0;
 
-function slideShow() {
+function animationSlide() {
   imageSlide.src = `./assets/images/slideshow/${slides[indexSlide].image}`;
   textSlide.innerHTML = slides[indexSlide].tagLine;
   // DOTS
@@ -43,22 +43,22 @@ function slideShow() {
   } 
 }
 
-slideArrowRight.addEventListener("click", () => {
+slideArrowRight.addEventListener("click", function() {
   if (indexSlide == totalSlides - 1) {
     indexSlide = 0;
   } else {
     indexSlide++;
   }
-  slideShow();
+  animationSlide();
 });
 
-slideArrowLeft.addEventListener("click", () => {
+slideArrowLeft.addEventListener("click", function() {
   if (indexSlide == 0) {
-    indexSlide = totalSlides - 1;
+    indexSlide = totalSlides -1;
   } else {
     indexSlide--;
   }
-  slideShow();
+  animationSlide();
 });
 
 function appendNewDot() {
@@ -71,6 +71,7 @@ function appendNewDot() {
 for (let index = 0; index < slides.length; index++) {
   appendNewDot();
 }
+
 // ajouter au premier dot la classe dot_selected
 let firstDot = document.querySelector(".dot");
 firstDot.classList.add("dot_selected");
